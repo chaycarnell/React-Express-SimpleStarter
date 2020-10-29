@@ -11,7 +11,7 @@ const Render = () => {
   const [status, setStatus] = useState(undefined);
 
   const getStatus = () => {
-    axios.get('http://localhost:3001/api/example/test').then(result => {
+    axios.get('http://localhost:3001/api/public/example').then(result => {
       setStatus(result.data.message);
     });
   };

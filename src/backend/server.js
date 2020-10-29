@@ -1,36 +1,38 @@
+require('dotenv').config();
+// Libs
 const express = require('express');
-const example = require('./routes/example');
 const bodyParser = require('body-parser');
 const compression = require('compression');
-const cors = require('cors');
 const helmet = require('helmet');
+const cors = require('cors');
 const path = require('path');
 const app = express();
+const server = require('http').createServer(app);
 const port = process.env.PORT || 3001;
 
-// the __dirname is the current directory from where the script is running
-const homePage = path.join(__dirname, '../../public/index.html');
+// Express config
+app.use(compression());
+app.use(helmet());
+app.use(cors());
+app.use(express.static(__dirname + './../../'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-/// Serve the homePage
-app.get('/', function(req, res) {
-  res.sendFile(homePage);
+// Routes
+const example = require('./api/routes/public');
+
+// Apply routes
+app.use('/api/public', example);
+
+// Serve React app
+// Wildcard match will handle returning index when page is refreshed
+// Routing would otherwise return and error i.e. 'cannot get /someRoute'
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, '../../public/index.html'));
 });
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(cors());
-app.use(helmet());
-
-// public route
-app.use('/api/example', example);
-
-// Allows the use of files.
-app.use(express.static(__dirname + './../../'));
-
-// Use compression
-app.use(compression());
-
-// launch our backend into a port
-app.listen(port, () => {
-  console.log(`App is running on port ${port} 🚀`); // eslint-disable-line no-console
+// Start listening on server port
+server.listen(port, err => {
+  if (err) throw err;
+  console.log(`App is running on ${port}`);
 });

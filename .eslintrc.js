@@ -6,7 +6,7 @@ module.exports = {
     quotes: [2, 'single'],
     'react/jsx-uses-react': 1,
     'react/jsx-uses-vars': 1,
-    'no-console': 2
+    'no-console': 1
   },
   env: {
     browser: true,

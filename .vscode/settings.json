@@ -1,7 +1,5 @@
 {
   "git.ignoreLimitWarning": true,
-  "eslint.enable": true,
-  "eslint.autoFixOnSave": false,
   "editor.formatOnSave": true,
   "[markdown]": {
     "editor.wordWrap": "wordWrapColumn",

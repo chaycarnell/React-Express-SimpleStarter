@@ -1,4 +1,4 @@
-# MERN template
+# Express + React starter app
 
 A simple client and server app using Express and React
 

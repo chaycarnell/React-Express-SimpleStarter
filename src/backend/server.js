@@ -27,12 +27,12 @@ app.use('/api/public', example);
 // Serve React app
 // Wildcard match will handle returning index when page is refreshed
 // Routing would otherwise return and error i.e. 'cannot get /someRoute'
-app.get('*', function(req, res) {
+app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, '../../public/index.html'));
 });
 
 // Start listening on server port
-server.listen(port, err => {
+server.listen(port, (err) => {
   if (err) throw err;
-  console.log(`App is running on ${port}`);
+  console.info(`App is running on ${port}`);
 });

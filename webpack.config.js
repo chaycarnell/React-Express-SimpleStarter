@@ -9,13 +9,13 @@ module.exports = () => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       publicPath: '/dist/',
-      filename: 'bundle.js'
+      filename: 'bundle.js',
     },
     plugins: [
       new CopyWebpackPlugin({ patterns: [{ from: './public/favicon.png' }] }),
       new webpack.EnvironmentPlugin({
-        SERVER_URL: process.env.SERVER_URL
-      })
+        SERVER_URL: process.env.SERVER_URL,
+      }),
     ],
     module: {
       rules: [
@@ -23,25 +23,18 @@ module.exports = () => {
           test: /\.js$/,
           exclude: /node_modules/,
           use: {
-            loader: 'babel-loader'
-          }
+            loader: 'babel-loader',
+          },
         },
         {
           test: /\.css$/,
-          use: ['style-loader', 'css-loader']
+          use: ['style-loader', 'css-loader'],
         },
         {
           test: /\.(png|svg|jpg|gif)$/,
-          use: ['file-loader']
+          use: ['file-loader'],
         },
-        {
-          test: /\.(graphql|gql)$/,
-          exclude: /node_modules/,
-          use: {
-            loader: 'graphql-tag/loader'
-          }
-        }
-      ]
+      ],
     },
     devServer: {
       historyApiFallback: true,
@@ -50,9 +43,9 @@ module.exports = () => {
       port: 8080,
       proxy: {
         '/api': {
-          target: `${process.env.SERVER_URL}`
-        }
-      }
-    }
+          target: `${process.env.SERVER_URL}`,
+        },
+      },
+    },
   };
 };

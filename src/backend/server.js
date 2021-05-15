@@ -1,7 +1,6 @@
 require('dotenv').config();
 // Libs
 const express = require('express');
-const bodyParser = require('body-parser');
 const compression = require('compression');
 const helmet = require('helmet');
 const cors = require('cors');
@@ -17,8 +16,8 @@ app.use(compression());
 app.use(helmet());
 app.use(cors());
 app.use(express.static(path.join(__dirname, './../../')));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Routes
 const example = require('./api/routes/public');
@@ -29,7 +28,7 @@ app.use('/api/public', example);
 // Serve React app
 // Wildcard match will handle returning index when page is refreshed
 // Routing would otherwise return and error i.e. 'cannot get /someRoute'
-app.get('*', (req, res) =>
+app.get('*', (__, res) =>
   res.sendFile(path.join(__dirname, '../../public/index.html')),
 );
 

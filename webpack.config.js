@@ -40,7 +40,7 @@ module.exports = () => ({
     historyApiFallback: true,
     hot: true,
     contentBase: path.resolve(__dirname, 'public'),
-    port: 8080,
+    port: 3000,
     proxy: {
       '/api': {
         target: `${process.env.SERVER_URL}`,

@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
-
-const Content = styled('div')`
-  height: 20px;
-  width: 100%;
-`;
+import * as S from './dashboard.styles';
 
 const Render = () => {
-  const [status, setStatus] = useState(undefined);
+  const [serverMessage, setServerMessage] = useState(undefined);
 
   const getStatus = () => {
     axios.get(`${process.env.SERVER_URL}/api/public/example`).then((result) => {
-      setStatus(result.data.message);
+      setServerMessage(result.data.message);
     });
   };
 
@@ -21,9 +16,11 @@ const Render = () => {
   }, []);
 
   return (
-    <>
-      <Content>{status}</Content>
-    </>
+    <S.Container>
+      <S.Content>
+        The response from the Express server is: {serverMessage}
+      </S.Content>
+    </S.Container>
   );
 };
 

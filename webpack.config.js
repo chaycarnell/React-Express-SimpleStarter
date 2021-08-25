@@ -39,7 +39,6 @@ module.exports = () => ({
   devServer: {
     historyApiFallback: true,
     hot: true,
-    contentBase: path.resolve(__dirname, 'public'),
     port: 3000,
     proxy: {
       '/api': {

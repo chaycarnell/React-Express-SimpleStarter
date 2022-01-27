@@ -1,17 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/dashboard';
 
 const Render = () => (
   <Router>
-    <Switch>
-      <Route exact path="/">
-        <Dashboard />
-      </Route>
-      {/* <Route path="/someroute">
-          <SomeComponent />
-        </Route> */}
-    </Switch>
+    <Routes>
+      <Route exact path="/" element={<Dashboard />} />
+      <Route exact path="*" element={<Dashboard />} />
+    </Routes>
   </Router>
 );
 

@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "A starter React+Express setup for new projects",
   "license": "ISC",
-  "author": "Chay Carnell",
+  "author": {
+    "name": "Chay Carnell",
+    "email": "chaycarnell@gmail.com",
+    "url": "https://chaycarnell.com/"
+  },
   "scripts": {
     "build": "npm run install:client && npm run install:server && cd server && npm run build && cd ../client && yarn run build",
     "heroku-prebuild": "npm config set ignore-scripts true && npm i --g yarn@1.22.19",

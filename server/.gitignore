@@ -1,0 +1,14 @@
+# Dependencies
+node_modules
+
+# Env config
+.env
+
+# Build output
+dist
+
+# System
+.DS_Store
+
+# Test output
+coverage

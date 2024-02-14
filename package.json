@@ -1,62 +1,28 @@
 {
   "name": "react-express-starter",
   "version": "1.0.0",
-  "description": "Client and server app using React & Express",
-  "main": "index.js",
-  "scripts": {
-    "start": "node ./src/backend/server.js",
-    "dev:server": "npx kill-port 3001 && nodemon --watch src/backend ./src/backend/server.js",
-    "dev:client": "npx kill-port 3000 && webpack serve --progress --profile --open --mode development",
-    "heroku-postbuild": "webpack --mode production",
-    "build": "webpack --mode production",
-    "test": "jest",
-    "lint": "eslint ./src"
-  },
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "author": "chaycarnell@gmail.com",
+  "private": true,
+  "description": "A starter React+Express setup for new projects",
   "license": "ISC",
-  "dependencies": {
-    "axios": "^0.27.2",
-    "compression": "^1.7.4",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.2",
-    "express": "^4.18.1",
-    "helmet": "^6.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.4.0",
-    "styled-components": "^5.3.5"
+  "author": "Chay Carnell",
+  "scripts": {
+    "build": "npm run install:client && npm run install:server && cd server && npm run build && cd ../client && yarn run build",
+    "heroku-prebuild": "npm config set ignore-scripts true && npm i --g yarn@1.22.19",
+    "install:client": "cd client && NODE_ENV=development yarn",
+    "install:server": "cd server && npm i --include=dev",
+    "lint": "cd server && npm run lint && cd ../client && npm run lint",
+    "lint:fix": "cd server && npm run lint:fix && cd ../client && npm run lint:fix",
+    "prepare": "husky",
+    "sort": "npx sort-package-json && cd server && npx sort-package-json && cd ../client && npx sort-package-json",
+    "start": "node ./server/dist/expressServer.js",
+    "start:dev": "concurrently 'cd client && yarn dev' 'cd server && npm run dev'"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.0",
-    "@babel/eslint-parser": "^7.18.9",
-    "@babel/preset-env": "^7.19.0",
-    "@babel/preset-react": "^7.18.6",
-    "babel-jest": "^29.0.3",
-    "babel-loader": "^8.2.5",
-    "babel-preset-react": "^6.24.1",
-    "copy-webpack-plugin": "^11.0.0",
-    "css-loader": "^6.7.1",
-    "dotenv-webpack": "^8.0.1",
-    "eslint": "^8.23.1",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.31.8",
-    "file-loader": "^6.2.0",
-    "html-webpack-plugin": "^5.5.0",
-    "husky": "^8.0.1",
-    "jest": "^29.0.3",
-    "nodemon": "^2.0.19",
-    "prettier": "^2.7.1",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.11.0"
+    "concurrently": "^8.2.2",
+    "husky": "^9.0.10"
+  },
+  "engines": {
+    "node": "21.6.1",
+    "npm": "10.2.4"
   }
 }

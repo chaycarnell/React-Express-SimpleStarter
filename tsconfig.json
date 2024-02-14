@@ -1,0 +1,4 @@
+{
+  "compilerOptions": {},
+  "exclude": ["dist", "public", "node_modules"]
+}

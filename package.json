@@ -1,7 +1,6 @@
 {
   "name": "react-express-starter",
   "version": "1.0.0",
-  "private": true,
   "description": "A starter React+Express setup for new projects",
   "license": "ISC",
   "author": "Chay Carnell",

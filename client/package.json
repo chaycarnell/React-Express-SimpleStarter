@@ -1,9 +1,7 @@
 {
   "name": "vite-react-starter",
   "version": "1.0.0",
-  "private": true,
   "description": "A starter React app setup for new projects",
-  "keywords": [],
   "license": "ISC",
   "author": "Chay Carnell",
   "type": "module",

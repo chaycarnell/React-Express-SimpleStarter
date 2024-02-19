@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
-    "husky": "^9.0.10"
+    "husky": "^9.0.11"
   },
   "engines": {
     "node": "21.6.1",

@@ -10,6 +10,7 @@
   },
   "scripts": {
     "build": "npm run install:client && npm run install:server && cd server && npm run build && cd ../client && yarn run build",
+    "commit": "cz",
     "heroku-prebuild": "npm config set ignore-scripts true && npm i --g yarn@1.22.19",
     "install:client": "cd client && NODE_ENV=development yarn",
     "install:server": "cd server && npm i --include=dev",
@@ -20,12 +21,18 @@
     "start": "node ./server/dist/expressServer.js",
     "start:dev": "concurrently 'cd client && yarn dev' 'cd server && npm run dev'"
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "devDependencies": {
     "concurrently": "^8.2.2",
+    "cz-conventional-changelog": "^3.3.0",
     "husky": "^9.0.11"
   },
   "engines": {
-    "node": "21.6.1",
-    "npm": "10.2.4"
+    "node": ">=21",
+    "npm": ">=10"
   }
 }

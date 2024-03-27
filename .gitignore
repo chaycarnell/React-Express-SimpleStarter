@@ -32,3 +32,6 @@ dist
 
 # Test output
 coverage
+
+# Public dir
+public

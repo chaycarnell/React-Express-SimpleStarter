@@ -15,7 +15,9 @@
     "lint:fix": "npm run lint -- --fix",
     "prepare": "husky",
     "sort:package": "npx sort-package-json",
-    "start": "node --env-file=.env ./dist/expressServer.js"
+    "start": "node --env-file=.env ./dist/expressServer.js",
+    "test": "true",
+    "test:ci": "true"
   },
   "dependencies": {
     "compression": "1.7.4",

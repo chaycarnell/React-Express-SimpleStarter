@@ -23,7 +23,13 @@
     "prettier:write": "npx prettier --write \"**/*.{js,ts,tsx,json}\"",
     "sort:package": "npx sort-package-json && cd server && npx sort-package-json && cd ../client && npx sort-package-json",
     "start": "node ./server/dist/expressServer.js",
-    "start:dev": "concurrently 'cd client && npm run dev' 'cd server && npm run dev'"
+    "start:dev": "concurrently 'cd client && npm run dev' 'cd server && npm run dev'",
+    "test": "npm run test:client && npm run test:server",
+    "test:ci": "npm run test:client:ci && npm run test:server:ci",
+    "test:client": "cd client && npm run test",
+    "test:client:ci": "cd client && npm run test:ci",
+    "test:server": "cd server && npm run test",
+    "test:server:ci": "cd server && npm run test:ci"
   },
   "config": {
     "commitizen": {

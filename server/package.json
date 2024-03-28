@@ -6,12 +6,15 @@
   "author": "Chay Carnell",
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
+    "check:audit": "npm audit --level high",
     "check:deps": "npm outdated",
+    "check:outdated": "npm outdated || true",
+    "check:types": "tsc --noEmit",
     "dev": "tsx watch --env-file=.env ./src/expressServer.ts",
     "lint": "tsc --noEmit && eslint . --ext .ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
     "prepare": "husky",
-    "sort": "npx sort-package-json",
+    "sort:package": "npx sort-package-json",
     "start": "node --env-file=.env ./dist/expressServer.js"
   },
   "dependencies": {

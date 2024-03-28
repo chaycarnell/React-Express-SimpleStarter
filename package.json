@@ -9,17 +9,21 @@
     "url": "https://chaycarnell.com/"
   },
   "scripts": {
-    "build": "npm run install:client && npm run install:server && cd server && npm run build && cd ../client && yarn run build",
+    "build": "npm run install:client && npm run install:server && cd server && npm run build && cd ../client && npm run build",
+    "check:audit": "npm audit --level high && cd server && npm run check:audit && cd ../client && npm run check:audit",
+    "check:outdated": "npm outdated || true && cd server && npm run check:outdated && cd ../client && npm run check:outdated",
+    "check:types": "cd server && npm run check:types && cd ../client && npm run check:types",
     "commit": "cz",
-    "heroku-prebuild": "npm config set ignore-scripts true && npm i --g yarn@1.22.19",
-    "install:client": "cd client && NODE_ENV=development yarn",
+    "heroku-prebuild": "npm config set ignore-scripts true",
+    "install:client": "cd client && npm i --include=dev",
     "install:server": "cd server && npm i --include=dev",
     "lint": "cd server && npm run lint && cd ../client && npm run lint",
     "lint:fix": "cd server && npm run lint:fix && cd ../client && npm run lint:fix",
     "prepare": "husky",
-    "sort": "npx sort-package-json && cd server && npx sort-package-json && cd ../client && npx sort-package-json",
+    "prettier:write": "npx prettier --write \"**/*.{js,ts,tsx,json}\"",
+    "sort:package": "npx sort-package-json && cd server && npx sort-package-json && cd ../client && npx sort-package-json",
     "start": "node ./server/dist/expressServer.js",
-    "start:dev": "concurrently 'cd client && yarn dev' 'cd server && npm run dev'"
+    "start:dev": "concurrently 'cd client && npm run dev' 'cd server && npm run dev'"
   },
   "config": {
     "commitizen": {

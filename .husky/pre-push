@@ -6,7 +6,7 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m'
 
-npm run test:ci && npm run lint && npm check:types && npm check:audit && npm check:outdated
+npm run test:ci && npm run lint && npm run check:types && npm run check:audit && npm run check:outdated
 
 echo "${BLUE}#####################################################${NC}"
 echo "${BLUE}##${NC}"

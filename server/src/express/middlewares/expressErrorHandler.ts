@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 
 import { CustomExpressError, errorTypes, getError } from '../../common/errors';
-import logger from '../../utils/logger';
 
 const expressErrorHandler = (
   error: CustomExpressError | Error | unknown,

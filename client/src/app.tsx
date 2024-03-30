@@ -5,7 +5,7 @@ function App() {
   const [serverMessage, setServerMessage] = useState(undefined);
 
   const getStatus = () => {
-    axios.get(`/rest/public`).then((result) => {
+    axios.get('/rest/public').then(result => {
       setServerMessage(result.data.message);
     });
   };

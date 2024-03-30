@@ -22,13 +22,13 @@ applyExpressMiddlewares(app, expressRoutes, isProduction);
 const httpServer = http.createServer(app);
 
 (async () => {
-  await new Promise<void>((resolve) => httpServer.listen({ port }, resolve));
+  await new Promise<void>(resolve => httpServer.listen({ port }, resolve));
   logger.info(
     `Express server listening on ${port} with base routes ${BaseServerRoutes.ROOT} and ${BaseServerRoutes.REST}`,
   );
 })();
 
 // Gracefully shut down in the case of interrupt and termination signals
-['SIGINT', 'SIGTERM'].forEach((signal) => {
+['SIGINT', 'SIGTERM'].forEach(signal => {
   process.on(signal, () => httpServer.close());
 });

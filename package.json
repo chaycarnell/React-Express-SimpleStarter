@@ -20,8 +20,8 @@
     "lint": "cd server && npm run lint && cd ../client && npm run lint",
     "lint:fix": "cd server && npm run lint:fix && cd ../client && npm run lint:fix",
     "prepare": "husky",
-    "prettier:write": "npx prettier --write \"**/*.{js,ts,tsx,json}\"",
-    "sort:package": "npx sort-package-json && cd server && npx sort-package-json && cd ../client && npx sort-package-json",
+    "prettier:write": "prettier --write \"**/*.{js,ts,tsx,json}\"",
+    "sort:package": "npx sort-package-json && cd server && npm run sort:package && cd ../client && npm run sort:package",
     "start": "node ./server/dist/expressServer.js",
     "start:dev": "concurrently 'cd client && npm run dev' 'cd server && npm run dev'",
     "test": "npm run test:client && npm run test:server",
@@ -39,7 +39,8 @@
   "devDependencies": {
     "concurrently": "^8.2.2",
     "cz-conventional-changelog": "^3.3.0",
-    "husky": "^9.0.11"
+    "husky": "^9.0.11",
+    "prettier": "^3.2.5"
   },
   "engines": {
     "node": ">=21",

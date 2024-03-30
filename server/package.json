@@ -10,7 +10,7 @@
     "check:outdated": "npm outdated || true",
     "check:types": "tsc --noEmit",
     "dev": "tsx watch --env-file=.env ./src/expressServer.ts",
-    "lint": "tsc --noEmit && eslint . --ext .ts,.tsx",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "npm run lint -- --fix",
     "prepare": "husky",
     "sort:package": "npx sort-package-json",

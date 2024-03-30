@@ -1,5 +1,9 @@
+import logger from '../utils/logger';
+
+type customLogger = typeof logger;
+
 export interface CustomRequestContext {
-  logTraceId: string;
+  logger: customLogger;
   authenticated: boolean;
   user?: {
     id: string;

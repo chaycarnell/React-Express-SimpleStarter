@@ -4,14 +4,17 @@ import { v4 as uuidv4 } from 'uuid';
 import logger from '../../utils/logger';
 
 const expressLogger = (req: Request, res: Response, next: NextFunction) => {
-  // Generate log trace ID for all requests
-  req.logTraceId = uuidv4();
-  logger.info(
-    `[Express] New request: LogTraceId ${req.logTraceId} | Operation ${req.method} | Route ${req.url}`,
-  );
-  res.on('finish', () => {
-    logger.info(`[Express] End request: LogTraceId ${req.logTraceId}`);
-  });
+  // Assign logger instance with logTraceId metadata attached
+  req.logger = logger.child({ logTraceId: uuidv4() });
+  // Filter logs to API and base requests
+  if (req.url.includes('/rest') || req.url === '/') {
+    req.logger.info(
+      `[Express] New request: | Operation ${req.method} | Route ${req.url}`,
+    );
+    res.on('finish', () => {
+      req.logger.info(`[Express] End request`);
+    });
+  }
   return next();
 };
 

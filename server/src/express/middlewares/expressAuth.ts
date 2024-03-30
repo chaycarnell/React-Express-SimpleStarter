@@ -2,7 +2,6 @@ import { NextFunction, Request, Response } from 'express';
 
 import { CustomExpressError } from '../../common/errors';
 import { ErrorCodes } from '../../types/enums';
-import logger from '../../utils/logger';
 
 /**
  * Authenticates requests where an authorization header is present
@@ -22,13 +21,13 @@ const authenticateRequest = async (
       if (token === process.env.SECRET) {
         req.user = { id: '1000' };
         req.authenticated = true;
-        logger.info(
-          `[Express] Authorization success: LogTraceId ${req.logTraceId} | Operation ${req.method} | Route ${req.url} | User ${req.user.id}`,
+        req.logger.info(
+          `[Express] Authorization success: Operation ${req.method} | Route ${req.url} | User ${req.user.id}`,
         );
         return next();
       }
-      logger.error(
-        `[Express] Authorization failed: LogTraceId ${req.logTraceId} | Operation ${req.method} | Route ${req.url}`,
+      req.logger.error(
+        `[Express] Authorization failed: Operation ${req.method} | Route ${req.url}`,
       );
       throw new CustomExpressError(ErrorCodes.UNAUTHENTICATED);
     } else {

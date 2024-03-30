@@ -9,7 +9,7 @@ const expressErrorHandler = (
   res: Response,
   _next: NextFunction,
 ): void => {
-  logger.error(`[Express] Error encountered: LogTraceId ${req.logTraceId}`, {
+  req.logger.error(`[Express] Error encountered: `, {
     error,
   });
   if (error instanceof CustomExpressError) {

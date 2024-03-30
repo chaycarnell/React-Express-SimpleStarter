@@ -5,7 +5,8 @@ import logger from '../../utils/logger';
 
 const expressLogger = (req: Request, res: Response, next: NextFunction) => {
   // Assign logger instance with logTraceId metadata attached
-  req.logger = logger.child({ logTraceId: uuidv4() });
+  const logTraceId = uuidv4();
+  req.logger = logger.child({ logTraceId });
   // Filter logs to API and base requests
   if (req.url.includes('/rest') || req.url === '/') {
     req.logger.info(
@@ -15,6 +16,8 @@ const expressLogger = (req: Request, res: Response, next: NextFunction) => {
       req.logger.info(`[Express] End request`);
     });
   }
+  // Include the log trace in the response headers
+  res.setHeader('x-log-trace-id', logTraceId);
   return next();
 };
 

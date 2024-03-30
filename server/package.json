@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "A starter Express server setup for new projects",
   "license": "ISC",
-  "author": "Chay Carnell",
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
     "check:audit": "npm audit --level high",

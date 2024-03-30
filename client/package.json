@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "A starter React app setup for new projects",
   "license": "ISC",
-  "author": "Chay Carnell",
   "type": "module",
   "scripts": {
     "build": "tsc && vite build --emptyOutDir",

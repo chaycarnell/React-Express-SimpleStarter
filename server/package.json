@@ -6,7 +6,6 @@
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
     "check:audit": "npm audit --level high",
-    "check:deps": "npm outdated",
     "check:outdated": "npm outdated || true",
     "check:types": "tsc --noEmit",
     "dev": "tsx watch --env-file=.env ./src/expressServer.ts",

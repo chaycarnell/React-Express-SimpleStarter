@@ -11,9 +11,7 @@
   "scripts": {
     "build": "npm run install:client && npm run install:server && cd server && npm run build && cd ../client && npm run build",
     "check:audit": "npm audit --level high && cd server && npm run check:audit && cd ../client && npm run check:audit",
-    "check:outdated": "npm outdated || true && cd server && npm run check:outdated && cd ../client && npm run check:outdated",
     "check:types": "cd server && npm run check:types && cd ../client && npm run check:types",
-    "commit": "cz",
     "heroku-prebuild": "npm config set ignore-scripts true",
     "install:client": "cd client && npm i --include=dev",
     "install:server": "cd server && npm i --include=dev",
@@ -37,13 +35,13 @@
     }
   },
   "devDependencies": {
-    "concurrently": "^8.2.2",
+    "concurrently": "^9.0.1",
     "cz-conventional-changelog": "^3.3.0",
-    "husky": "^9.0.11",
-    "prettier": "^3.2.5"
+    "husky": "^9.1.6",
+    "prettier": "^3.3.3"
   },
   "engines": {
-    "node": ">=21",
+    "node": ">=22",
     "npm": ">=10"
   }
 }

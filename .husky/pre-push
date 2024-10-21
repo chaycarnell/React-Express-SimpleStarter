@@ -8,7 +8,7 @@ NC='\033[0m'
 npm run test:ci
 npm run lint
 npm run check:types
-run run check:audit
+npm run check:audit
 
 # Branch prefix validation
 branch_name=$(git rev-parse --abbrev-ref HEAD)

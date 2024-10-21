@@ -1,6 +1,4 @@
-import logger from '../utils/logger';
-
-type customLogger = typeof logger;
+import { customLogger } from './types';
 
 export interface CustomRequestContext {
   logger: customLogger;

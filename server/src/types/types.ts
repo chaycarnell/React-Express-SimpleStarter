@@ -6,4 +6,4 @@ export type customLogger = typeof logger;
 
 export type ErrorMap = Record<ErrorCode, ErrorObject>;
 
-export type ErrorCode = `${ErrorCodes}`;
+export type ErrorCode = (typeof ErrorCodes)[keyof typeof ErrorCodes];

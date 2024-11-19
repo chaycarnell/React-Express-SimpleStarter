@@ -12,8 +12,8 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run build --workspaces",
     "audit": "npm audit --level high",
+    "build": "npm run build --workspaces",
     "check:audit": "npm run audit && npm run check:audit --workspaces",
     "check:types": "npm run check:types --workspaces",
     "heroku-prebuild": "npm config set ignore-scripts true",
@@ -34,22 +34,22 @@
     }
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
     "concurrently": "^9.0.1",
     "cz-conventional-changelog": "^3.3.0",
-    "husky": "^9.1.6",
     "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
-    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.13",
     "eslint-plugin-simple-import-sort": "^12.1.1",
+    "husky": "^9.1.6",
     "prettier": "^3.3.3",
-    "typescript": "^5.6.3",
-    "@typescript-eslint/eslint-plugin": "^7.4.0",
-    "@typescript-eslint/parser": "^7.4.0"
+    "typescript": "^5.6.3"
   },
   "engines": {
     "node": ">=22",

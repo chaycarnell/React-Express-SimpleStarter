@@ -11,7 +11,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "npm run lint -- --fix",
     "sort:package": "npx sort-package-json",
-    "start": "node --env-file=.env ./dist/expressServer.js",
+    "start": "node --env-file=.env ../../dist/expressServer.js",
     "test": "true",
     "test:ci": "true"
   },
@@ -28,19 +28,7 @@
     "@types/cors": "^2.8.17",
     "@types/node": "^22.7.7",
     "@types/uuid": "^10.0.0",
-    "@typescript-eslint/eslint-plugin": "^7.4.0",
-    "@typescript-eslint/parser": "^7.4.0",
-    "eslint": "^8.57.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^18.0.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
-    "husky": "^9.1.6",
-    "prettier": "^3.3.3",
-    "tsx": "^4.19.1",
-    "typescript": "5.6.3"
+    "tsx": "^4.19.1"
   },
   "engines": {
     "node": ">=22",

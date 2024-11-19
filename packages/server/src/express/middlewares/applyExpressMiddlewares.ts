@@ -9,7 +9,7 @@ import expressAuth from './expressAuth';
 import expressErrorHandler from './expressErrorHandler';
 import expressLogger from './expressLogger';
 
-const staticFiles = express.static(path.join(__dirname, '../../../../public'));
+const staticFiles = express.static(path.join(__dirname, '../../../public'));
 
 const applyExpressMiddlewares = (
   app: express.Application,

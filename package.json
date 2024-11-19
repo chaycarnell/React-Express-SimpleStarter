@@ -8,26 +8,25 @@
     "email": "chaycarnell@gmail.com",
     "url": "https://chaycarnell.com/"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "build": "npm run install:client && npm run install:server && cd server && npm run build && cd ../client && npm run build",
-    "check:audit": "npm audit --level high && cd server && npm run check:audit && cd ../client && npm run check:audit",
-    "check:types": "cd server && npm run check:types && cd ../client && npm run check:types",
+    "build": "npm run build --workspaces",
+    "audit": "npm audit --level high",
+    "check:audit": "npm run audit && npm run check:audit --workspaces",
+    "check:types": "npm run check:types --workspaces",
     "heroku-prebuild": "npm config set ignore-scripts true",
-    "install:client": "cd client && npm i --include=dev",
-    "install:server": "cd server && npm i --include=dev",
-    "lint": "cd server && npm run lint && cd ../client && npm run lint",
-    "lint:fix": "cd server && npm run lint:fix && cd ../client && npm run lint:fix",
+    "lint": "npm run lint --workspaces",
+    "lint:fix": "npm run lint:fix --workspaces",
     "prepare": "husky",
     "prettier:write": "prettier --write \"**/*.{js,ts,tsx,json}\"",
-    "sort:package": "npx sort-package-json && cd server && npm run sort:package && cd ../client && npm run sort:package",
-    "start": "node ./server/dist/expressServer.js",
-    "start:dev": "concurrently 'cd client && npm run dev' 'cd server && npm run dev'",
-    "test": "npm run test:client && npm run test:server",
-    "test:ci": "npm run test:client:ci && npm run test:server:ci",
-    "test:client": "cd client && npm run test",
-    "test:client:ci": "cd client && npm run test:ci",
-    "test:server": "cd server && npm run test",
-    "test:server:ci": "cd server && npm run test:ci"
+    "sort": "npx sort-package-json",
+    "sort:package": "npm run sort && npm run sort:package --workspaces",
+    "start": "node ./dist/server/expressServer.js",
+    "start:dev": "concurrently 'cd packages/client && npm run dev' 'cd packages/server && npm run dev'",
+    "test": "npm run test --workspaces",
+    "test:ci": "npm run test:ci --workspaces"
   },
   "config": {
     "commitizen": {
@@ -38,7 +37,19 @@
     "concurrently": "^9.0.1",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^9.1.6",
-    "prettier": "^3.3.3"
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-react-refresh": "^0.4.13",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0"
   },
   "engines": {
     "node": ">=22",

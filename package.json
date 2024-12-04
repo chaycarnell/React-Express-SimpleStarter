@@ -21,12 +21,12 @@
     "lint:fix": "npm run lint:fix --workspaces",
     "prepare": "husky",
     "prettier:write": "prettier --write \"**/*.{js,ts,tsx,json}\"",
-    "sort": "npx sort-package-json",
-    "sort:package": "npm run sort && npm run sort:package --workspaces",
+    "sort": "npx sort-package-json && npm run sort --workspaces",
     "start": "node ./dist/server/expressServer.js",
     "start:dev": "concurrently 'cd packages/client && npm run dev' 'cd packages/server && npm run dev'",
     "test": "npm run test --workspaces",
-    "test:ci": "npm run test:ci --workspaces"
+    "test:ci": "npm run test:ci --workspaces",
+    "upgrade": "ncu -i && npm run upgrade --workspaces"
   },
   "config": {
     "commitizen": {
@@ -36,7 +36,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.4.0",
     "@typescript-eslint/parser": "^7.4.0",
-    "concurrently": "^9.0.1",
+    "concurrently": "^9.1.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -45,11 +45,12 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-react-refresh": "^0.4.13",
+    "eslint-plugin-react-refresh": "^0.4.16",
     "eslint-plugin-simple-import-sort": "^12.1.1",
-    "husky": "^9.1.6",
-    "prettier": "^3.3.3",
-    "typescript": "^5.6.3"
+    "husky": "^9.1.7",
+    "npm-check-updates": "^17.1.11",
+    "prettier": "^3.4.1",
+    "typescript": "^5.7.2"
   },
   "engines": {
     "node": ">=22",

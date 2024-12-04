@@ -1,4 +1,4 @@
 #!/bin/sh
 
 npm run prettier:write
-npm run sort:package
+npm run sort

@@ -30,7 +30,12 @@ const applyExpressMiddlewares = (
   app.use(expressAuth);
   app.use(staticFiles);
   app.use(BaseServerRoutes.REST, routes);
-  app.use('*', staticFiles);
+  // Serve index.html for base route
+  app.get('/', staticFiles);
+  // Redirect any other route to index.html
+  app.get('*', (_req, res) => {
+    res.redirect('/');
+  });
   app.use(expressErrorHandler);
 };
 
